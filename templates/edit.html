@@ -1,0 +1,23 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+    <div class="container text-center">
+        <a  class="btn btn-success" href="/resultados">LISTA</a>
+        <h1>Editando al usuario {{user.first_name}}</h1>
+        <form action="/user/update" method="post" class="form-control form-control-sm">
+            <div class="mb-3">
+                <input type="text" class="form-control" value={{user.first_name}}  placeholder="Nombre" name="first_name">
+    
+                <input type="text" class="form-control" value={{user.last_name}} placeholder="Apellido" name="last_name">
+        
+                <input type="email" class="form-control" value={{user.email}} placeholder="name@example.com" name="email">
+
+                <input type="submit" value="update Friend" class="btn btn-success">
+            </div>
+        </form>
+
+    </div>
+
+
+{% endblock %}

@@ -2,18 +2,24 @@
 
 {% block content %}
 
-    <form action="/send_form" method="post" class="form-control form-control-sm">
-        <div class="mb-3">
-            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nombre" name="first_name">
+    <div class="container text-center">
+        <a  class="btn btn-success" href="/resultados">LISTA</a>
+        <h1>AGREGA UN USUARIO</h1>
+        <form action="/send_form" method="post" class="form-control form-control-sm">
+            <div class="mb-3">
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nombre" name="first_name">
+        
     
-
-            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Apellido" name="last_name">
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Apellido" name="last_name">
+        
     
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="email">
 
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="email">
-            <a  class="btn btn-success" href="/resultados">LISTA</a>
-            <input type="submit" value="Add Friend" class="btn btn-success">
-        </div>
-    </form>
+                <input type="submit" value="Add Friend" class="btn btn-success">
+            </div>
+        </form>
+
+    </div>
+
 
 {% endblock %}

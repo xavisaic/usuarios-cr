@@ -2,23 +2,35 @@
 
 {% block content %}
 
-<table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Nombre Completo</th>
-        <th scope="col">E-Mail</th>
-        <th scope="col">creado en</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for u in usuarios %}
-      <tr>
-        <td scope="row">{{u.first_name }} {{u.last_name}}</td>
-        <td>{{u.email }}</td>
-        <td>{{u.created_at}}</td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+<div class="container">
+  <a  class="btn btn-success" href="/">LISTA</a>
+  <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nombre Completo</th>
+          <th scope="col">E-Mail</th>
+          <th scope="col">creado en</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for u in usuarios %}
+        <tr>
+          <td scope="row">{{u.id}}</td>
+          <td scope="row">{{u.first_name}} {{u.last_name}}</td>
+          <td>{{u.email }}</td>
+          <td>{{u.created_at}}</td>
+          <td><a href="/user/{{u.id}}">SHOW</a>
+              <a href="/user/edit/{{u.id}}">EDIT</a>
+              <a href="/user/eliminar/{{u.id}}">DELETE</a>
+            </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+</div>
+
 
 {% endblock %}

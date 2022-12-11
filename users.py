@@ -26,3 +26,31 @@ class User:
         # data es un diccionario que se pasará al método de guardar desde server.py
         return connectToMySQL('usuarios.users').query_db( query, data )
 
+    @classmethod
+    def elige_uno(cls, data):
+        query = f'''
+        SELECT * FROM usuarios.users
+        WHERE users.id= %(id)s;
+        '''
+        results = connectToMySQL('usuarios').query_db(query, data)
+
+        return cls(results[0])
+    
+    @classmethod
+    def actualiza(cls, data):
+        query = f''' UPDATE * usuarios.users 
+            SET first_name=%(first_name)s, last_name=%(last_name)s, email=%(email)s, created_at= NOW(), updated_at=NOW()
+            WHERE id = %(id)s;
+        '''
+        return connectToMySQL('usuarios.users').query_db(query, data)
+
+    # @classmethod
+    # def actualiza(cls,data):
+    #     query="UPDATE usuarios SET first_name=%(first_name)s, last_name=%(last_name)s,email=%(email)s, updated_at=NOW() WHERE id=%(id)s;"
+    #     return connectToMySQL('usuarios.users').query_db(query,data)
+
+    @classmethod
+    def delete(cls,data):
+        query  = "DELETE FROM usuarios.users WHERE id = %(id)s;"
+        return connectToMySQL('usuarios.users').query_db(query,data)    
+    
